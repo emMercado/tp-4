@@ -12,12 +12,7 @@ const FormularioPersona = (props) => {
     return (
         <form
             onSubmit={(e) => {
-                if (modoAgregar) {
-                    handleSubmit(persona);
-                    
-                } else {
-                    onEditar(persona);
-                }
+                modoAgregar ?  handleSubmit(persona) : onEditar(persona)
                 e.preventDefault();
             }}
         >
@@ -43,15 +38,6 @@ const FormularioPersona = (props) => {
             <button type="submit">{modoAgregar ? "Agregar" : "Editar"}</button>
             {!modoAgregar && <button onClick={onCancelar}>Cancelar</button>}
 
-
-
-            {/* Dibujar un componente u otro 
-      {!modoAgregar ? (
-        <button onClick={onCancelar}>Cancelar</button>
-      ) : (
-        <OtroComponente></OtroComponente>
-      )}
-      */}
         </form>
     );
 };
